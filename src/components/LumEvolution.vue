@@ -1,13 +1,17 @@
 <template>
-<div class="lumevolution">
+<Box>
   <h3 class="subtitle">Light intake evolution</h3>
   <chart :options="LineOptions" autoresize/>
-</div>
+</Box>
 </template>
 
 <script>
+import Box from '@/components/UI/Box.vue'
 import axios from 'axios'
 export default {
+  components:{
+    Box
+  },
   data: () => ({
     lum_data: []
   }),

@@ -10,6 +10,8 @@ import "@/plugins/charts";
 Vue.use(Buefy)
 
 export const SocketInstance = socketio('http://localhost:5000');
+//TODO PROXY CONFIG
+console.log(SocketInstance)
 
 Vue.use(new VueSocketIO({ connection: SocketInstance }))
 

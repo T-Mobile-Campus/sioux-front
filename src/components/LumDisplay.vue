@@ -1,5 +1,5 @@
 <template>
-  <section class="box">
+  <Box width=200 height=200>
     <h3 class="subtitle box-subtitle">Light intake</h3>
     <chart :options="gaugeOpts" autoresize />
     <Button
@@ -8,15 +8,17 @@
     size="medium"
     textColor="#fffefc"
     @click="launch_routine"/>
-  </section>
+  </Box>
 </template>
 
 <script>
 import Button from '@/components/UI/Button.vue'
+import Box from '@/components/UI/Box.vue'
 import axios from 'axios'
 export default {
   components:{
-    Button
+    Button,
+    Box
   },
   data: () => ({
     lum_data: 0,
@@ -80,13 +82,6 @@ computed:{
 </script>
 
 <style scoped>
-  .box{
-    box-shadow: 5px 5px lightslategrey;
-    border-radius: 5px;
-    background-color: rgba(214, 107, 6, 0.705);
-    width: 200px;
-    height: 200px;
-  }
   .echarts{
     width: auto !important;
     height: 80% !important;
