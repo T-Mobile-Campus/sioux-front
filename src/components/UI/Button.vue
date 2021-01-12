@@ -12,7 +12,7 @@ export default {
     size: {
       type: String,
       default: 'medium',
-      validator: value => { ['big', 'medium', 'small'].includes(value) }
+      validator: value =>  ['big', 'medium', 'small'].includes(value) 
     },
     textColor: String
   },

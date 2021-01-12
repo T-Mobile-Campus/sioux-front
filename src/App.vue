@@ -3,6 +3,7 @@
     <Header/>
     <div class="container">
       <lum-display/>
+      <lum-evolution/>
     </div>
   </div>
 </template>
@@ -10,31 +11,17 @@
 <script>
 import Header from '@/components/Header.vue'
 import LumDisplay from '@/components/LumDisplay.vue'
+import LumEvolution from './components/LumEvolution.vue'
 export default {
   name: 'App',
   components: {
     Header,
-    LumDisplay
+    LumDisplay,
+    LumEvolution
   },
   data() {
     return {
-      isConnected: false,
-      socketMessage: ''
-    }
-  },
 
-  sockets: {
-    connect() {
-      this.isConnected = true;
-      console.log('coooo')
-    },
-
-    disconnect() {
-      this.isConnected = false;
-    },
-
-    lum(data) {
-      this.socketMessage = data
     }
   },
 }

@@ -8,6 +8,7 @@
     size="medium"
     textColor="#fffefc"
     @click="launch_routine"/>
+    <p> {{ temp_data }}</p>
   </section>
 </template>
 
@@ -19,25 +20,24 @@ export default {
     Button
   },
   data: () => ({
-    lum_data: 0
+    lum_data: 0,
+    temp_data: 0
   }),
   sockets: {
   connect() {
-    this.isConnected = true;
-    console.log('coooo')
+    // upon socket connection
   },
 
   disconnect() {
-    this.isConnected = false;
+    //upon socket disconnection
   },
-
-  lum(data) {
-    this.lum_data = data
+  update(data) {
+    this.lum_data = data.lum
+    this.temp_data = data.temp
   }
 },
 methods:{
   launch_routine(){
-    console.log('h')
     axios.get('http://localhost:5000/sioux/oui/01')
     .then(res => {
       console.log(res)
@@ -50,31 +50,31 @@ methods:{
 computed:{
   gaugeOpts(){
     return   {
-    toolbox: {
-        feature: {
-            restore: {},
-            saveAsImage: {}
-        }
-    },
-    series: [
-        {
-            type: 'gauge',
-            detail: {
-              formatter: '{value}%',
-              offsetCenter: [0, '70%'],
-              fontSize:15
+      toolbox: {
+          feature: {
+              restore: {},
+              saveAsImage: {}
+          }
+      },
+      series: [
+          {
+              type: 'gauge',
+              detail: {
+                formatter: '{value}%',
+                offsetCenter: [0, '70%'],
+                fontSize:15
+                },
+              data: [{value: Math.round((this.lum_data -300) / (1020 - 300) * 100), name: ''}],
+              axisLabel:{
+                show: false
               },
-            data: [{value: Math.round((this.lum_data -300) / (1020 - 300) * 100), name: ''}],
-            axisLabel:{
-              show: false
-            },
-            axisTick:{
-              show: false
-            },
-        }
-    ],
-    radius: [10,20]
-};
+              axisTick:{
+                show: false
+              },
+          }
+      ],
+      radius: [10,20]
+    }
   }
 }
 }
