@@ -1,0 +1,11 @@
+[[redirects]]
+from = "http://localhost:5000/*"
+to = "https://sioux.herokuapp.com/:splat"
+status = 200
+force = true
+headers = { X-From = "Netlify" }
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200

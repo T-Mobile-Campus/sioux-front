@@ -6,22 +6,35 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
+  data: () => ({
+    lum_data: []
+  }),
+  mounted() {
+     axios.get('http://localhost:5000/sioux/lum')
+      .then( res => {
+        this.lum_data = res.data
+      })
+      .catch (err => {
+        console.log(err)
+      })
+  },
   computed: {
     LineOptions(){
       return {
         xAxis: {
             type: 'category',
             boundaryGap: false,
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            data: this.lum_data.map( el => el.lum)
         },
         yAxis: {
             type: 'value'
         },
         series: [{
-            data: [820, 932, 901, 934, 1290, 1330, 1320],
+            data: this.lum_data.map( el => el.lum),
             type: 'line',
-            // areaStyle: {}
+            areaStyle: {}
         }]
       }
     }

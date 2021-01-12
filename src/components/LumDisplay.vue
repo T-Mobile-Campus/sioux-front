@@ -8,7 +8,6 @@
     size="medium"
     textColor="#fffefc"
     @click="launch_routine"/>
-    <p> {{ temp_data }}</p>
   </section>
 </template>
 
