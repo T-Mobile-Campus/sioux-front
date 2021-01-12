@@ -1,5 +1,5 @@
 <template>
-  <Box width=200 height=200>
+  <Box :width="200" :height="200">
     <h3 class="subtitle box-subtitle">Light intake</h3>
     <chart :options="gaugeOpts" autoresize />
     <Button
