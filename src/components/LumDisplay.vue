@@ -2,10 +2,10 @@
   <Box :width="250" :height="250" title="Light Intake" class="box">
     <chart :options="gaugeOpts" autoresize />
     <Button
-    color="rgb(38, 37, 34)"
+    color="#c8c8c8"
     text="Launch Routine"
     size="medium"
-    textColor="#fffefc"
+    textColor="#262626"
     @click="launch_routine"/>
   </Box>
 </template>
@@ -20,33 +20,31 @@ export default {
     Box
   },
   data: () => ({
-    lum_data: 0,
-    temp_data: 0
+    lum_data: 1000,
   }),
   sockets: {
-  connect() {
-    // upon socket connection
-  },
+    connect() {
+      // upon socket connection
+    },
 
-  disconnect() {
-    //upon socket disconnection
+    disconnect() {
+      //upon socket disconnection
+    },
+    update(data) {
+      this.lum_data = data.lum
+    }
   },
-  update(data) {
-    this.lum_data = data.lum
-    this.temp_data = data.temp
-  }
-},
-methods:{
-  launch_routine(){
-    axios.get('http://localhost:5000/sioux/oui/01')
-    .then(res => {
-      console.log(res)
-    })
-    .catch( err => {
-      console.log(err)
-    })
-  }
-},
+  methods:{
+    launch_routine(){
+      axios.get('http://localhost:5000/sioux/oui/01')
+      .then(res => {
+        console.log(res)
+      })
+      .catch( err => {
+        console.log(err)
+      })
+    }
+  },
 computed:{
   gaugeOpts(){
     return   {
@@ -59,18 +57,38 @@ computed:{
       series: [
           {
               type: 'gauge',
+              itemStyle:{
+                color: "#c8c8c8"
+              },
               detail: {
                 formatter: '{value}%',
                 offsetCenter: [0, '70%'],
-                fontSize:15
+                fontSize:15,
+                color: "#c8c8c8"
                 },
               data: [{value: Math.round((this.lum_data -300) / (1020 - 300) * 100), name: ''}],
               axisLabel:{
-                show: false
+                show: false,
               },
               axisTick:{
-                show: false
+                show: false,
               },
+              splitLine: {
+                length: 15,
+                lineStyle: {
+                width: 2,
+                color: '#FF990E'
+              },
+              axisLine: {
+                show: false,
+                lineStyle: {
+                  width: 0,
+               }
+              },
+              progress:{
+                show:true
+              }
+        },
           }
       ],
       radius: [10,20]

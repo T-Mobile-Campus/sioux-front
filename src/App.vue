@@ -6,6 +6,7 @@
       <lum-display/>
       </div>
       <div class="main">
+        <vibr-seconds/>
         <lum-evolution/>
       </div>
     </div>
@@ -15,13 +16,15 @@
 <script>
 import Header from '@/components/Header.vue'
 import LumDisplay from '@/components/LumDisplay.vue'
-import LumEvolution from './components/LumEvolution.vue'
+import LumEvolution from '@/components/LumEvolution.vue'
+import VibrSeconds from '@/components/VibrSeconds.vue'
 export default {
   name: 'App',
   components: {
     Header,
     LumDisplay,
-    LumEvolution
+    LumEvolution,
+    VibrSeconds
   },
   data() {
     return {
@@ -55,5 +58,14 @@ body{
   .container{
     flex-direction: column-reverse;
   }
+  #app > div.container > div.main > div > div.echarts > div > canvas{
+    width : 60%;
+  }
+}
+
+@media (min-width:1000px){
+    #app{
+        padding: 0 30%;
+    }
 }
 </style>

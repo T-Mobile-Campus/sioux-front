@@ -36,13 +36,16 @@ export default {
 }
 .medium{
   width: 70px;
+  font-weight: bold;
 }
 .small{
   width: 50px;
   font-size: 0.8em;
+  font-weight: bolder;
 }
 button{
-  border-radius: 5px;
+  border-radius: 2px;
   border: none;
+  box-shadow: 2px 2px 2px #282828;
 }
 </style>

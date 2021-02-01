@@ -1,27 +1,23 @@
 <template>
-<Box title="Light intake evolution" >
+<Box title="Recent Activity" >
   <chart :options="LineOptions" autoresize/>
 </Box>
 </template>
 
 <script>
 import Box from '@/components/UI/Box.vue'
-import axios from 'axios'
 export default {
   components:{
     Box
   },
   data: () => ({
-    lum_data: []
+    vibrations: []
   }),
-  mounted() {
-     axios.get('http://localhost:5000/sioux/lum')
-      .then( res => {
-        this.lum_data = res.data
-      })
-      .catch (err => {
-        console.log(err)
-      })
+  sockets: {
+    update(data) {
+      console.log(data)
+      this.vibrations.concat(data.vibr) // set a limit
+    }
   },
   computed: {
     LineOptions(){
@@ -29,7 +25,7 @@ export default {
         xAxis: {
             type: 'category',
             boundaryGap: false,
-            data: this.lum_data.map( el => el.lum),
+            data: this.vibrations,
             axisLabel:{
               textStyle:{
                 color: "#c8c8c8"
@@ -38,14 +34,14 @@ export default {
         },
         yAxis: {
             type: 'value',
+            min:0,
+            max:2000,
             axisLabel:{
-              textStyle:{
                 color: "#c8c8c8"
-              }
             }
         },
         series: [{
-            data: this.lum_data.map( el => el.lum),
+            data: this.vibrations,
             type: 'line',
             areaStyle: {}
         }]
