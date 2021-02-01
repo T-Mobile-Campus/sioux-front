@@ -1,6 +1,5 @@
 <template>
-<Box>
-  <h3 class="subtitle">Light intake evolution</h3>
+<Box title="Light intake evolution">
   <chart :options="LineOptions" autoresize/>
 </Box>
 </template>

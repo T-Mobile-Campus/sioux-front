@@ -1,6 +1,5 @@
 <template>
-  <Box :width="200" :height="200">
-    <h3 class="subtitle box-subtitle">Light intake</h3>
+  <Box :width="250" :height="250" title="Light Intake" class="box">
     <chart :options="gaugeOpts" autoresize />
     <Button
     color="rgb(38, 37, 34)"
@@ -85,7 +84,7 @@ computed:{
   .echarts{
     width: auto !important;
     height: 80% !important;
-    margin-bottom: -10px !important;
+    margin: -10px 0 -20px 0!important;
   }
   .box-subtitle{
     margin-bottom:-10px !important;
