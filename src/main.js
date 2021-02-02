@@ -8,8 +8,12 @@ import "@/plugins/charts";
 
 
 // Vue.use(Buefy)
+let wsHost = "https://sioux.herokuapp.com"
+if (location.host.split(":")[0] == "localhost") {
+  wsHost = 'http://localhost:5000'
+} 
 
-export const SocketInstance = socketio('http://localhost:5000');
+export const SocketInstance = socketio(wsHost );
 //TODO PROXY CONFIG
 console.log(SocketInstance)
 
