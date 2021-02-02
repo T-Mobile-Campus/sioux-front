@@ -38,7 +38,7 @@ export default {
         yAxis: {
             type: 'value',
             min:0,
-            max:500,
+            max:1200,
             axisLabel:{
                 color: "#c8c8c8"
             }

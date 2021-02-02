@@ -36,7 +36,7 @@ export default {
   },
   methods:{
     launch_routine(){
-      axios.get('http://localhost:5000/sioux/oui/01')
+      axios.get('/server/sioux/oui/01')
       .then(res => {
         console.log(res)
       })

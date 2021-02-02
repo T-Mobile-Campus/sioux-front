@@ -1,11 +1,11 @@
 module.exports = {
   devServer: {
     proxy: {
-      "/server": {
+      "^/server*": {
         target: "http://localhost:5000/",
-        changeOrigin: true,
-        ws: true,
-        // pathRewrite: {'/server': ''}
+        // changeOrigin: true,
+        // ws: true,
+        pathRewrite: {'/server': ''}
       },
     },
   }

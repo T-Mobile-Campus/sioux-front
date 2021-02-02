@@ -18,14 +18,14 @@ export default {
 </script>
 <style scoped>
   .box{
-    box-shadow: 5px 5px 5px 5px #262626;
-    border-radius: 2px;
+    box-shadow: 4px 4px 4px 4px #262626;
+    border-radius: 4px;
     background-color: #626262;
     margin: 15px;
   }
   .box-title{
     height:10%;
-    border-radius: 2px 2px 0 0;
+    border-radius: 4px 4px 0 0;
     padding-top: 10px;
     background: linear-gradient(180deg, rgba(194,190,190,0.2497373949579832) 0%, rgba(255,255,255,0) 100%);
   }

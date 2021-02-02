@@ -19,7 +19,7 @@ export default {
   },
   methods:{
     launch_reset(){
-      axios.get('http://localhost:5000/sioux/oui/02')
+      axios.get('/server/sioux/oui/02')
       .then(res => {
         console.log(res)
       })

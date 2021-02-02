@@ -14,14 +14,24 @@ export default {
   data: () => ({
     vibr_data: []
   }),
+  sockets: {
+    update() {
+      this.getVibrz()
+    }
+  },
   mounted() {
-     axios.get('http://localhost:5000/sioux/vibr')
+    this.getVibrz()
+  },
+  methods:{
+    getVibrz(){
+      axios.get('/server/sioux/vibr')
       .then( res => {
         this.vibr_data = res.data.map( el => el.doc)
       })
       .catch (err => {
         console.log(err)
       })
+    }
   },
   computed: {
     LineOptions(){
