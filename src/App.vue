@@ -25,7 +25,6 @@ export default {
   components: {
     Header,
     LumDisplay,
-    LumEvolution,
     VibrSeconds,
     Reset,
     VibrEvolution,
