@@ -42,7 +42,7 @@ export default {
   text-align: center;
   color: rgb(200,200,200) !important;
   background-color: #292929;
-  height: 100vh;
+  min-height: 100vh;
   padding: 0 10%;
 }
 .container{
