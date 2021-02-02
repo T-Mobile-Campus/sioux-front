@@ -7,7 +7,7 @@
       </div>
       <div class="main">
         <vibr-seconds/>
-        <lum-evolution/>
+        <vibr-evolution/>
       </div>
     </div>
   </div>
@@ -16,14 +16,14 @@
 <script>
 import Header from '@/components/Header.vue'
 import LumDisplay from '@/components/LumDisplay.vue'
-import LumEvolution from '@/components/LumEvolution.vue'
+import VibrEvolution from '@/components/VibrEvolution.vue'
 import VibrSeconds from '@/components/VibrSeconds.vue'
 export default {
   name: 'App',
   components: {
     Header,
     LumDisplay,
-    LumEvolution,
+    VibrEvolution,
     VibrSeconds
   },
   data() {
