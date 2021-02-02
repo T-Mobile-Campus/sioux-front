@@ -26,7 +26,7 @@ export default {
   .box-title{
     height:10%;
     border-radius: 2px 2px 0 0;
-    padding-top: 10px;
+    padding-top: 0px;
     background: linear-gradient(180deg, rgba(194,190,190,0.2497373949579832) 0%, rgba(255,255,255,0) 100%);
   }
   .box-title h4{

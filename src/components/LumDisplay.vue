@@ -3,7 +3,7 @@
     <chart :options="gaugeOpts" autoresize />
     <Button
     color="#c8c8c8"
-    text="Launch Routine"
+    text="Recherche direction"
     size="medium"
     textColor="#262626"
     @click="launch_routine"/>
