@@ -101,8 +101,8 @@ computed:{
 <style scoped>
   .echarts{
     width: auto !important;
-    height: 80% !important;
-    margin: -10px 0 -20px 0!important;
+    height: 65% !important;
+    margin: -10px 0 0 0!important;
   }
   .box-subtitle{
     margin-bottom:-10px !important;

@@ -11,6 +11,7 @@ import "@/plugins/charts";
 let wsHost = "https://sioux.herokuapp.com"
 if (location.host.split(":")[0] == "localhost") {
   wsHost = 'http://localhost:5000'
+  console.log(location.host)
 } 
 
 export const SocketInstance = socketio(wsHost );
