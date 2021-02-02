@@ -4,6 +4,7 @@
     <div class="container">
       <div class="aside">
       <lum-display/>
+      <Reset/>
       </div>
       <div class="main">
         <vibr-seconds/>
@@ -18,13 +19,16 @@ import Header from '@/components/Header.vue'
 import LumDisplay from '@/components/LumDisplay.vue'
 import VibrEvolution from '@/components/VibrEvolution.vue'
 import VibrSeconds from '@/components/VibrSeconds.vue'
+import Reset from '@/components/Reset.vue'
 export default {
   name: 'App',
   components: {
     Header,
     LumDisplay,
+    LumEvolution,
+    VibrSeconds,
+    Reset,
     VibrEvolution,
-    VibrSeconds
   },
   data() {
     return {

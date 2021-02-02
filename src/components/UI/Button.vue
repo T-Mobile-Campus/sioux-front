@@ -35,7 +35,7 @@ export default {
   font-size: 1.5em;
 }
 .medium{
-  width: 70px;
+  width: 100px;
   font-weight: bold;
 }
 .small{
