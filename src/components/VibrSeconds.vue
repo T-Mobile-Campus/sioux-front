@@ -16,7 +16,10 @@ export default {
   sockets: {
     update(data) {
       console.log(data)
-      this.vibrations.concat(data.vibr) // set a limit
+      if ( this.vibrations.length >= 100) {
+        this.vibrations.splice(0,6)
+      }
+      this.vibrations = this.vibrations.concat(data.vibr) // set a limit
     }
   },
   computed: {
@@ -35,7 +38,7 @@ export default {
         yAxis: {
             type: 'value',
             min:0,
-            max:2000,
+            max:500,
             axisLabel:{
                 color: "#c8c8c8"
             }
