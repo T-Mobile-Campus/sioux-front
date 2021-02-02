@@ -1,5 +1,5 @@
 <template>
-<Box title="Light intake evolution" >
+<Box title="Vibrations evolution" >
   <chart :options="LineOptions" autoresize/>
 </Box>
 </template>
@@ -12,12 +12,12 @@ export default {
     Box
   },
   data: () => ({
-    lum_data: []
+    vibr_data: []
   }),
   mounted() {
-     axios.get('http://localhost:5000/sioux/lum')
+     axios.get('http://localhost:5000/sioux/vibr')
       .then( res => {
-        this.lum_data = res.data
+        this.vibr_data = res.data.map( el => el.doc)
       })
       .catch (err => {
         console.log(err)
@@ -29,7 +29,7 @@ export default {
         xAxis: {
             type: 'category',
             boundaryGap: false,
-            data: this.lum_data.map( el => el.lum),
+            data: this.vibr_data.map( el => el.date),
             axisLabel:{
               textStyle:{
                 color: "#c8c8c8"
@@ -45,7 +45,7 @@ export default {
             }
         },
         series: [{
-            data: this.lum_data.map( el => el.lum),
+            data: this.vibr_data.map( el => el.vibr),
             type: 'line',
             areaStyle: {}
         }]
