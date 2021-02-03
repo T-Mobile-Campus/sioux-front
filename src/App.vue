@@ -4,6 +4,7 @@
     <div class="container">
       <div class="aside">
       <lum-display/>
+      <vibr-list/>
       <Reset/>
       </div>
       <div class="main">
@@ -20,6 +21,7 @@ import LumDisplay from '@/components/LumDisplay.vue'
 import VibrEvolution from '@/components/VibrEvolution.vue'
 import VibrSeconds from '@/components/VibrSeconds.vue'
 import Reset from '@/components/Reset.vue'
+import VibrList from '@/components/VibrList.vue'
 export default {
   name: 'App',
   components: {
@@ -28,6 +30,7 @@ export default {
     VibrSeconds,
     Reset,
     VibrEvolution,
+    VibrList,
   },
   data() {
     return {
@@ -55,6 +58,10 @@ export default {
 }
 body{
   margin : 0;
+}
+
+.material-design-icon__svg{
+  display:inline-block;
 }
 
 @media (max-width:900px){

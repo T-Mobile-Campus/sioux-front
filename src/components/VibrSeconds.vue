@@ -37,8 +37,8 @@ export default {
         },
         yAxis: {
             type: 'value',
-            min:0,
-            max:1200,
+            // min:0,
+            // max:1200,
             axisLabel:{
                 color: "#c8c8c8"
             }
@@ -55,5 +55,10 @@ export default {
 </script>
 
 <style scoped>
+@media (max-width:900px){
 
+  .echarts{
+    width: auto !important;
+  }
+}
 </style>

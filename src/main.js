@@ -2,12 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import socketio from 'socket.io-client';
 import VueSocketIO from 'vue-socket.io';
-// import Buefy from 'buefy'
-// import 'buefy/dist/buefy.css'
 import "@/plugins/charts";
 
-
-// Vue.use(Buefy)
 let wsHost = "https://sioux.herokuapp.com"
 if (location.host.split(":")[0] == "localhost") {
   wsHost = 'http://localhost:5000'

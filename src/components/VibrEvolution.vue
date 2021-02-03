@@ -7,6 +7,7 @@
 <script>
 import Box from '@/components/UI/Box.vue'
 import axios from 'axios'
+// import * as timeago from "timeago.js"
 export default {
   components:{
     Box
@@ -66,5 +67,10 @@ export default {
 </script>
 
 <style scoped>
+@media (max-width:900px){
 
+  .echarts{
+    width: auto !important;
+  }
+}
 </style>

@@ -5,17 +5,21 @@
     text="Remise à zéro"
     size="medium"
     textColor="#262626"
-    @click="launch_reset"/>
+    @click="launch_reset">
+    <RestartIcon/>
+    </Button>
   </Box>
 </template>
 <script>
 import Button from '@/components/UI/Button.vue'
 import Box from '@/components/UI/Box.vue'
 import axios from 'axios'
+import RestartIcon from 'vue-material-design-icons/Restart.vue';
 export default {
   components:{
     Button,
-    Box
+    Box,
+    RestartIcon
   },
   methods:{
     launch_reset(){
@@ -32,4 +36,7 @@ export default {
 </script>
 
 <style scoped>
+.box {
+  padding: 10px 0;
+}
 </style>
