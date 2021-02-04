@@ -1,6 +1,6 @@
 <template>
   <box 
-  :height="430" 
+  :height="385" 
   :width="250"
   title="Highest Recent Vibrations">
     <div class="items">
