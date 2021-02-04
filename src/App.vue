@@ -64,6 +64,10 @@ body{
   display:inline-block;
 }
 
+.toast{
+  font-family:  Helvetica, Arial, sans-serif;
+}
+
 @media (max-width:900px){
   .container{
     flex-direction: column-reverse;
