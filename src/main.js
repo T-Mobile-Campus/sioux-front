@@ -3,7 +3,19 @@ import App from './App.vue'
 import socketio from 'socket.io-client';
 import VueSocketIO from 'vue-socket.io';
 import "@/plugins/charts";
-
+import Toasted from 'vue-toasted';
+ 
+Vue.use(Toasted, {
+  duration: 3500,
+  position: 'top-right',
+  containerClass: "toast",
+  action : {
+    text : 'Okay',
+    onClick : (e, toastObject) => {
+        toastObject.goAway(0);
+    }
+  }
+})
 let wsHost = "https://sioux.herokuapp.com"
 if (location.host.split(":")[0] == "localhost") {
   wsHost = 'http://localhost:5000'

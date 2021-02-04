@@ -17,7 +17,8 @@
     "vue": "^2.6.11",
     "vue-echarts": "^5.0.0-beta.0",
     "vue-material-design-icons": "^4.11.0",
-    "vue-socket.io": "^3.0.10"
+    "vue-socket.io": "^3.0.10",
+    "vue-toasted": "^1.1.28"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
