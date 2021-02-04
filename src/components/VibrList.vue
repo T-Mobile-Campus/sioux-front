@@ -2,8 +2,10 @@
   <box 
   :height="430" 
   :width="250"
-  title="Latest Vibrations">
-  <list-item v-for="vibr in latest_vibr" :key="vibr._id" :date="vibr.doc.date" :value="vibr.doc.vibr"/>
+  title="Highest Recent Vibrations">
+    <div class="items">
+      <list-item v-for="vibr in latest_vibr" :key="vibr._id" :date="vibr.doc.date" :value="vibr.doc.vibr"/>
+    </div>
   </box>
 </template>
 
@@ -22,11 +24,16 @@ export default {
   created() {
     this.getVibrz()
   },
+  sockets: {
+    update() {
+      this.getVibrz()
+    }
+  },
   methods:{
     getVibrz(){
       axios.get('/server/sioux/High_values')
       .then( res => {
-        this.latest_vibr = res.data
+        this.latest_vibr = res.data.sort((a,b) => {return  (new Date(b.doc.date) - new Date(a.doc.date)) })
         console.log(res.data)
       })
       .catch (err => {
@@ -39,5 +46,10 @@ export default {
 </script>
 
 <style scoped>
-
+.items{
+  display: flex;
+  flex-direction: column;
+  padding: 0 25px;
+  margin-top: 20px;;
+}
 </style>
