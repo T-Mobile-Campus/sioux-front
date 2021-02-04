@@ -1,6 +1,6 @@
 <template>
   <box 
-  :height="430" 
+  :height="385" 
   :width="250"
   title="Latest Vibrations">
   <list-item v-for="vibr in latest_vibr" :key="vibr._id" :date="vibr.doc.date" :value="vibr.doc.vibr"/>
