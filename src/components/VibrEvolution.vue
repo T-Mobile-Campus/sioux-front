@@ -26,7 +26,7 @@ export default {
   },
   methods:{
     getVibrz(){
-      axios.get('/server/sioux/vibr')
+      axios.get('/server/sioux/last_12_hours')
       .then( res => {
         this.vibr_data = res.data.map( el => el.doc)
       })
