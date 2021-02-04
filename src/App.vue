@@ -5,6 +5,7 @@
       <div class="aside">
       <lum-display/>
       <vibr-list/>
+      <reglage-alert/>
       <Reset/>
       </div>
       <div class="main">
@@ -22,6 +23,7 @@ import VibrEvolution from '@/components/VibrEvolution.vue'
 import VibrSeconds from '@/components/VibrSeconds.vue'
 import Reset from '@/components/Reset.vue'
 import VibrList from '@/components/VibrList.vue'
+import ReglageAlert from '@/components/ReglageAlert.vue'
 export default {
   name: 'App',
   components: {
@@ -31,6 +33,7 @@ export default {
     Reset,
     VibrEvolution,
     VibrList,
+    ReglageAlert,
   },
   data() {
     return {
