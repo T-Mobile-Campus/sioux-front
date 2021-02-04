@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header/>
+    <!-- <Header/> -->
     <div class="container">
       <div class="aside">
       <lum-display/>
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
+// import Header from '@/components/Header.vue'
 import LumDisplay from '@/components/LumDisplay.vue'
 import VibrEvolution from '@/components/VibrEvolution.vue'
 import VibrSeconds from '@/components/VibrSeconds.vue'
@@ -27,7 +27,7 @@ import ReglageAlert from '@/components/ReglageAlert.vue'
 export default {
   name: 'App',
   components: {
-    Header,
+    // Header,
     LumDisplay,
     VibrSeconds,
     Reset,
