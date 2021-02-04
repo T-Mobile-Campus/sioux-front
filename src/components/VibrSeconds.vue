@@ -1,6 +1,7 @@
 <template>
 <Box title="Recent Activity" >
-  <chart :options="LineOptions" autoresize/>
+  <img  v-if="loading" src="https://i.imgur.com/llF5iyg.gif" alt="loading" class="loader">
+  <chart v-else :options="LineOptions" autoresize/>
 </Box>
 </template>
 
@@ -11,18 +12,20 @@ export default {
     Box
   },
   data: () => ({
-    vibrations: []
+    vibrations: [],
   }),
   sockets: {
     update(data) {
-      console.log(data)
-      if ( this.vibrations.length >= 100) {
+      if ( this.vibrations.length >= 100 ) {
         this.vibrations.splice(0,6)
       }
-      this.vibrations = this.vibrations.concat(data.vibr) // set a limit
+      this.vibrations = this.vibrations.concat(data.vibr) 
     }
   },
   computed: {
+    loading(){
+      return !(this.vibrations.length>1)
+    },
     LineOptions(){
       return {
         xAxis: {
@@ -55,6 +58,10 @@ export default {
 </script>
 
 <style scoped>
+.loader{
+  max-height: 200px;
+  margin: 100px;
+}
 @media (max-width:900px){
 
   .echarts{
