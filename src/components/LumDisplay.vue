@@ -37,7 +37,7 @@ export default {
   },
   methods:{
     launch_routine(){
-      axios.get('/server/sioux/oui/01')
+      axios.get('/server/signal/oui/01')
       .then(res => {
         console.log(res)
         if (res.data.smoke_signal) this.$toasted.show('Signal sent !')

@@ -1,6 +1,7 @@
 <template>
   <Box :height="130" :width="250" title="Reglage Alert" class="box">
     <abdelkader-atamaa/>
+    <routine-controller/>
   </Box>
 </template>
 
@@ -8,10 +9,12 @@
 import Box from '@/components/UI/Box.vue'
 import axios from 'axios'
 import AbdelkaderAtamaa from '@/components/UI/AbdelkaderAtamaa.vue'
+import RoutineController from '@/components/UI/RoutineController.vue'
 export default {
   components: { 
     Box,
     AbdelkaderAtamaa,
+    RoutineController
   },
 methods:{
     valider_seuil(){

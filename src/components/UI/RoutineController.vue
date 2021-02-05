@@ -1,8 +1,8 @@
 <template>
-  <div class="alert" v-if="threshold !=-1">
-    <input type="number" id="abdel" v-model="threshold" :disabled="isDisabled" ref="threshold_input" tabindex="-1">
+  <div class="alert" v-if="routine !=-1">
+    <input type="number" id="routine_input" v-model="routine" :disabled="isDisabled" ref="routine_input" tabindex="-1">
     <edit-icon @click="edit" v-if="isDisabled"></edit-icon>
-    <check-icon v-else @click="submitThreshold" class="checkIcon"></check-icon>
+    <check-icon v-else @click="submitRoutine" class="checkIcon"></check-icon>
   </div>
 </template>
 
@@ -16,19 +16,19 @@ export default {
     CheckIcon
   },
   data: () => ({
-    threshold: -1,
+    routine: -1,
     isDisabled: true,
   }),
   mounted() {
-    this.getThreshold()
+    this.getRoutine()
   },
   created(){
   },
   methods:{
-    getThreshold() {
-      axios.get('/server/sioux/threshold')
+    getRoutine() {
+      axios.get('/server/sioux/auto_mode')
       .then( res => {
-        this.threshold = res.data.doc
+        this.routine = res.data.doc
         console.log(res.data)
       })
       .catch (err => {
@@ -38,17 +38,16 @@ export default {
     edit() {
       this.isDisabled = false
       this.$nextTick(() => {
-        document.querySelector('#abdel').focus()
+        document.querySelector('#routine_input').focus()
       })
     },
-    submitThreshold(){
+    submitRoutine(){
       this.isDisabled = true;
-      axios.get(`/server/sioux/threshold/${this.threshold}`)
+      axios.get(`/server/sioux/routine/${this.routine}`)
       .then(res => {
-        console.log(res.data)
         if (res.data) {
-          this.$toasted.show('Threshold Updated !')
-          this.threshold = res.data
+          this.$toasted.show('Routine Updated !')
+          this.routine = res.data
         }
       })
       .catch( err => {

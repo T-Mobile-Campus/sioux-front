@@ -23,7 +23,7 @@ export default {
   },
   methods:{
     launch_reset(){
-      axios.get('/server/sioux/oui/02')
+      axios.get('/server/signal/oui/02')
       .then(res => {
         if (res.data.smoke_signal) this.$toasted.show('Signal sent !')
       })
