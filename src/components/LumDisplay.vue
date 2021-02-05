@@ -7,7 +7,6 @@
     size="medium"
     textColor="#262626"
     @click="launch_routine">
-    <cached-icon></cached-icon>
     </Button>
   </Box>
 </template>
@@ -16,12 +15,10 @@
 import Button from '@/components/UI/Button.vue'
 import Box from '@/components/UI/Box.vue'
 import axios from 'axios'
-import CachedIcon from 'vue-material-design-icons/RotateOrbit.vue';
 export default {
   components:{
     Button,
     Box,
-    CachedIcon
   },
   data: () => ({
     lum_data: 1000,

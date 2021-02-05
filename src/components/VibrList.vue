@@ -34,7 +34,6 @@ export default {
       axios.get('/server/sioux/High_values')
       .then( res => {
         this.latest_vibr = res.data.sort((a,b) => {return  (new Date(b.doc.date) - new Date(a.doc.date)) })
-        console.log(res.data)
       })
       .catch (err => {
         console.log(err)
