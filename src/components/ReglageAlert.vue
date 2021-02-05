@@ -38,5 +38,6 @@ methods:{
   font-size: 1.4rem;
   color: #000000;
   text-decoration: underline;
+  text-align: center;
 }
 </style>

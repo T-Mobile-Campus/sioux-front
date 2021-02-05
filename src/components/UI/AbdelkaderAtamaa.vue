@@ -61,7 +61,7 @@ export default {
 
 <style scoped>
   input{
-    width : 50%;
+    width : 30%;
     text-align: center;
     background: transparent;
     border: none;
