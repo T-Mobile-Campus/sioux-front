@@ -34,7 +34,6 @@ export default {
       axios.get('/server/sioux/threshold')
       .then( res => {
         this.threshold = res.data.doc
-        console.log(res.data)
       })
       .catch (err => {
         console.log(err)

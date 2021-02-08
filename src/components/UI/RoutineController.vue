@@ -34,7 +34,6 @@ export default {
       axios.get('/server/sioux/auto_mode')
       .then( res => {
         this.routine = res.data.doc
-        console.log(res.data)
       })
       .catch (err => {
         console.log(err)

@@ -7,6 +7,7 @@
 
 <script>
 import Box from '@/components/UI/Box.vue'
+import * as timeago from 'timeago.js'
 export default {
   components:{
     Box
@@ -20,7 +21,7 @@ export default {
         this.vibrations.splice(0,6)
       }
       console.log(data.vibr)
-      this.vibrations = this.vibrations.concat(data.vibr) 
+      this.vibrations.push(data.vibr) 
     }
   },
   computed: {
@@ -32,7 +33,7 @@ export default {
         xAxis: {
             type: 'category',
             boundaryGap: false,
-            data: this.vibrations,
+            data: this.vibrations.map( el => timeago.format(el.date)),
             axisLabel:{
               textStyle:{
                 color: "#c8c8c8"
@@ -48,7 +49,7 @@ export default {
             }
         },
         series: [{
-            data: this.vibrations,
+            data: this.vibrations.map ( el => el.val) ,
             type: 'line',
             areaStyle: {}
         }]
