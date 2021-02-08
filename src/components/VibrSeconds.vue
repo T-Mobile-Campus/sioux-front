@@ -19,6 +19,7 @@ export default {
       if ( this.vibrations.length >= 100 ) {
         this.vibrations.splice(0,6)
       }
+      console.log(data.vibr)
       this.vibrations = this.vibrations.concat(data.vibr) 
     }
   },

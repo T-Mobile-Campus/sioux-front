@@ -71,6 +71,13 @@ body{
   font-family:  Helvetica, Arial, sans-serif;
 }
 
+.material-design-icon {
+  margin:0 !important;
+  padding: 0 !important;
+  height: 24px !important;
+  width: 24px;
+}
+
 @media (max-width:900px){
   .container{
     flex-direction: column-reverse;

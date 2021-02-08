@@ -35,9 +35,14 @@ methods:{
 
 <style scoped>
 .subtitle{
-  font-size: 1.4rem;
-  color: #000000;
-  text-decoration: underline;
+  /* font-size: 1.4rem; */
+  font-weight: bold;
+  /* color: #000000; */
+  /* text-decoration: underline; */
   text-align: center;
+  margin-top: 5px ;
+}
+.box{
+  padding: 10px 0;
 }
 </style>

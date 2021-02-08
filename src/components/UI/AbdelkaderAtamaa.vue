@@ -1,12 +1,14 @@
 <template>
-  <div class="alert" v-if="threshold !=-1">
-    <input type="number" id="abdel" v-model="threshold" :disabled="isDisabled" ref="threshold_input" tabindex="-1">/Hz
-    <edit-icon @click="edit" v-if="isDisabled"></edit-icon>
-    <check-icon v-else @click="submitThreshold" class="checkIcon"></check-icon>
+  <div class="alert" v-if="threshold !=-1" v-on-clickaway="away">
+    <input type="number" id="abdel" oninput="this.value = 
+ !!this.value && Math.abs(this.value)!= 0 && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"  v-model="threshold" :disabled="isDisabled" ref="threshold_input" tabindex="-1"> Hz
+      <edit-icon @click="edit" v-if="isDisabled"></edit-icon>
+      <check-icon v-else @click="submitThreshold" class="checkIcon"></check-icon>
   </div>
 </template>
 
 <script>
+import { directive as onClickaway } from 'vue-clickaway';
 import axios from 'axios'
 import EditIcon from 'vue-material-design-icons/SquareEditOutline.vue';
 import CheckIcon from 'vue-material-design-icons/CheckboxMarked.vue'
@@ -14,6 +16,9 @@ export default {
   components: {
     EditIcon,
     CheckIcon
+  },
+  directives: {
+    onClickaway: onClickaway,
   },
   data: () => ({
     threshold: -1,
@@ -42,20 +47,29 @@ export default {
       })
     },
     submitThreshold(){
-      this.isDisabled = true;
-      axios.get(`/server/sioux/threshold/${this.threshold}`)
-      .then(res => {
-        console.log(res.data)
-        if (res.data) {
-          this.$toasted.show('Threshold Updated !')
-          this.threshold = res.data
-        }
-      })
-      .catch( err => {
-        console.log(err)
-      })
-    }
-  },
+      if ( this.threshold > 0) {
+        this.isDisabled = true;
+        axios.get(`/server/sioux/threshold/${this.threshold}`)
+        .then(res => {
+          console.log(res.data)
+          if (res.data) {
+            this.$toasted.show('Threshold Updated !')
+            this.threshold = res.data
+          }
+        })
+        .catch( err => {
+          console.log(err)
+        })
+      }
+      else {
+        this.threshold = 1000
+        this.$toasted.show("Eh oh là ! ")
+      }
+    },
+    away(){
+      this.isDisabled = true
+    },
+  }
 }
 </script>
 
@@ -66,14 +80,15 @@ export default {
     background: transparent;
     border: none;
     font-family:inherit;
-    font-size: 2rem;
+    font-size: 1.77rem;
     color: inherit;
     opacity: 0.7;
   }
 
   input:focus{
     outline: none ;
-    border-bottom: 1px solid rgb(200,200,200,0.4) ;
+    border-radius: 4px;
+    border: 2px solid rgb(200,200,200,0.4) ;
     opacity: 1;
   }
 
@@ -94,5 +109,11 @@ input[type=number] {
 }
 .alert {
   height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+.material-design-icon{
+  margin-left: 15px !important;
+};
 </style>

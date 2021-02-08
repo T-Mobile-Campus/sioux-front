@@ -30,8 +30,7 @@ export default {
     background: linear-gradient(180deg, rgba(194,190,190,0.2497373949579832) 0%, rgba(255,255,255,0) 100%);
   }
   .box-title h4{
-    margin-inline-end: 15px;
     display: block;
-    margin : 0;
+    margin : 1px;
   }
 </style>

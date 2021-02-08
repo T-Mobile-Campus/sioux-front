@@ -1,12 +1,14 @@
 <template>
-  <div class="alert" v-if="routine !=-1">
-    <input type="number" id="routine_input" v-model="routine" :disabled="isDisabled" ref="routine_input" tabindex="-1">/min      
+  <div class="alert" v-if="routine !=-1" v-on-clickaway="away">
+    <input type="number"  id="routine_input" v-model="routine" oninput="this.value = 
+ !!this.value && Math.abs(this.value)!= 0 && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" :disabled="isDisabled" ref="routine_input" tabindex="-1"> min      
     <edit-icon @click="edit" v-if="isDisabled"></edit-icon>
     <check-icon v-else @click="submitRoutine" class="checkIcon"></check-icon>
   </div>
 </template>
 
 <script>
+import { directive as onClickaway } from 'vue-clickaway';
 import axios from 'axios'
 import EditIcon from 'vue-material-design-icons/SquareEditOutline.vue';
 import CheckIcon from 'vue-material-design-icons/CheckboxMarked.vue'
@@ -14,6 +16,9 @@ export default {
   components: {
     EditIcon,
     CheckIcon
+  },
+  directives: {
+    onClickaway: onClickaway,
   },
   data: () => ({
     routine: -1,
@@ -42,17 +47,26 @@ export default {
       })
     },
     submitRoutine(){
-      this.isDisabled = true;
-      axios.get(`/server/sioux/routine/${this.routine}`)
-      .then(res => {
-        if (res.data) {
-          this.$toasted.show('Routine Updated !')
-          this.routine = res.data
-        }
-      })
-      .catch( err => {
-        console.log(err)
-      })
+      if (this.routine > 0) {
+        this.isDisabled = true;
+        axios.get(`/server/sioux/routine/${this.routine}`)
+        .then(res => {
+          if (res.data) {
+            this.$toasted.show('Routine Updated !')
+            this.routine = res.data
+          }
+        })
+        .catch( err => {
+          console.log(err)
+        })
+      }
+      else { 
+        this.$toasted.show("Heeeeyyyyyyy CA VA PAS NON")
+        this.routine = 60
+      }
+    },
+    away(){
+      this.isDisabled = true
     }
   },
 }
@@ -72,7 +86,8 @@ export default {
 
   input:focus{
     outline: none ;
-    border-bottom: 1px solid rgb(200,200,200,0.4) ;
+    border-radius: 4px;
+    border: 2px solid rgb(200,200,200,0.4) ;
     opacity: 1;
   }
 
@@ -93,5 +108,14 @@ input[type=number] {
 }
 .alert {
   height: auto;
+}
+.alert {
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.material-design-icon{
+  margin-left: 15px !important;
 }
 </style>

@@ -4,7 +4,7 @@
   :width="250"
   title="Highest Recent Vibrations">
     <div class="items">
-      <list-item v-for="vibr in latest_vibr" :key="vibr._id" :date="vibr.doc.date" :value="vibr.doc.vibr"/>
+      <list-item v-for="vibr in latest_vibr.slice(0,6)" :key="vibr._id" :date="vibr.doc.date" :value="vibr.doc.vibr"/>
     </div>
   </box>
 </template>
