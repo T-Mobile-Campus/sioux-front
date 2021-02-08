@@ -1,6 +1,6 @@
 <template>
   <div class="alert" v-if="threshold !=-1">
-    <input type="number" id="abdel" v-model="threshold" :disabled="isDisabled" ref="threshold_input" tabindex="-1">
+    <input type="number" id="abdel" v-model="threshold" :disabled="isDisabled" ref="threshold_input" tabindex="-1">/Hz
     <edit-icon @click="edit" v-if="isDisabled"></edit-icon>
     <check-icon v-else @click="submitThreshold" class="checkIcon"></check-icon>
   </div>
@@ -61,7 +61,7 @@ export default {
 
 <style scoped>
   input{
-    width : 50%;
+    width : 30%;
     text-align: center;
     background: transparent;
     border: none;

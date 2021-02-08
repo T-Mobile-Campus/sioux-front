@@ -1,6 +1,8 @@
 <template>
-  <Box :height="130" :width="250" title="Reglage Alert" class="box">
+  <Box :height="130" :width="250" class="box">
+    <div class="subtitle">Threshold</div>
     <abdelkader-atamaa/>
+    <div class="subtitle">Routing Frequency</div>
     <routine-controller/>
   </Box>
 </template>
@@ -32,5 +34,10 @@ methods:{
 </script>
 
 <style scoped>
-
+.subtitle{
+  font-size: 1.4rem;
+  color: #000000;
+  text-decoration: underline;
+  text-align: center;
+}
 </style>
