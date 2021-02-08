@@ -78,6 +78,12 @@ body{
   #app > div.container > div.main > div > div.echarts > div > canvas{
     width : 60%;
   }
+    #app{
+        padding: 0;
+    }
+    .box{
+      width : auto !important;
+    }
 }
 
 @media (min-width:1000px){

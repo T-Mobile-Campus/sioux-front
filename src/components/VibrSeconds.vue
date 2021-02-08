@@ -59,8 +59,8 @@ export default {
 
 <style scoped>
 .loader{
-  max-height: 200px;
-  margin: 100px;
+  max-height: 7em;
+  margin: 25%;
 }
 @media (max-width:900px){
 
