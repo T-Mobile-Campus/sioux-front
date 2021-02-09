@@ -20,6 +20,7 @@ export default {
       if ( this.vibrations.length >= 100 ) {
         this.vibrations.splice(0,1)
       }
+      console.log(data.vibr)
       this.vibrations.push(data.vibr) 
     }
   },
