@@ -21,6 +21,7 @@ export default {
         this.vibrations.splice(0,1)
       }
       console.log(data.vibr)
+      console.log(this.vibrations)
       this.vibrations.push(data.vibr) 
     }
   },
