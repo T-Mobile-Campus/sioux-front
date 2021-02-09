@@ -1,5 +1,5 @@
 <template>
-<Box title="Vibrations evolution" >
+<Box title="Évolution des vibrations" >
   <img  v-if="loading" src="https://i.imgur.com/llF5iyg.gif" alt="loading" class="loader">
   <chart v-else :options="LineOptions" autoresize/>
 </Box>
@@ -44,7 +44,7 @@ export default {
         xAxis: {
             type: 'category',
             boundaryGap: false,
-            data: this.vibr_data.map( el => timeago.format(el.date)),
+            data: this.vibr_data.map( el => timeago.format(el.date, 'fr_FR')),
             axisLabel:{
               textStyle:{
                 color: "#c8c8c8"

@@ -1,7 +1,7 @@
 <template>
   <div class="alert" v-if="routine !=-1" v-on-clickaway="away">
     <input type="number"  id="routine_input" v-model="routine" oninput="this.value = 
- !!this.value && Math.abs(this.value)!= 0 && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" :disabled="isDisabled" ref="routine_input" tabindex="-1"> min      
+ !!this.value  && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" :disabled="isDisabled" ref="routine_input" tabindex="-1"> min      
     <edit-icon @click="edit" v-if="isDisabled"></edit-icon>
     <check-icon v-else @click="submitRoutine" class="checkIcon"></check-icon>
   </div>
@@ -46,7 +46,7 @@ export default {
       })
     },
     submitRoutine(){
-      if (this.routine > 0) {
+      if (this.routine >= 0) {
         this.isDisabled = true;
         axios.get(`/server/sioux/routine/${this.routine}`)
         .then(res => {

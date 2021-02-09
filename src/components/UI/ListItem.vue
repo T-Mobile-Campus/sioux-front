@@ -20,7 +20,7 @@ export default {
     },
     computed: {
         date_formated(){
-            return timeago.format(this.date)
+            return timeago.format(this.date, 'fr_FR')
         }
     }
 }

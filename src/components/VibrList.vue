@@ -2,7 +2,7 @@
   <box 
   :height="385" 
   :width="250"
-  title="Highest Recent Vibrations">
+  title="Dernières alertes">
     <div class="items">
       <list-item v-for="vibr in latest_vibr.slice(0,6)" :key="vibr._id" :date="vibr.doc.date" :value="vibr.doc.vibr"/>
     </div>

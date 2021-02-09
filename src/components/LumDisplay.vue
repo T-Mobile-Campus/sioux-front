@@ -1,12 +1,13 @@
 <template>
-  <Box :width="250" :height="250" title="Light Intake" class="box">
+  <Box :width="250" :height="250" title="Lumière reçue" class="box">
     <chart :options="gaugeOpts" autoresize />
     <Button
     color="#c8c8c8"
-    text="Zim Zoom"
+    text="Routine"
     size="medium"
     textColor="#262626"
     @click="launch_routine">
+    <RoutineIcon/>
     </Button>
   </Box>
 </template>
@@ -15,10 +16,12 @@
 import Button from '@/components/UI/Button.vue'
 import Box from '@/components/UI/Box.vue'
 import axios from 'axios'
+import RoutineIcon from 'vue-material-design-icons/RotateOrbit.vue';
 export default {
   components:{
     Button,
     Box,
+    RoutineIcon
   },
   data: () => ({
     lum_data: 1000,

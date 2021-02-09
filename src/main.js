@@ -3,8 +3,12 @@ import App from './App.vue'
 import socketio from 'socket.io-client';
 import VueSocketIO from 'vue-socket.io';
 import "@/plugins/charts";
+import { fr } from "@/plugins/timeago_fr.js";
 import Toasted from 'vue-toasted';
- 
+import { register } from 'timeago.js';
+
+register('fr_FR', fr)
+
 Vue.use(Toasted, {
   duration: 3500,
   position: 'top-right',

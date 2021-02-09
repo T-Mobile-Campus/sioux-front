@@ -1,8 +1,8 @@
 <template>
   <Box :height="130" :width="250" class="box">
-    <div class="subtitle">Threshold</div>
+    <div class="subtitle">Seuil d'alerte</div>
     <abdelkader-atamaa/>
-    <div class="subtitle">Routing Frequency</div>
+    <div class="subtitle">Fréquence de routine</div>
     <routine-controller/>
   </Box>
 </template>
@@ -23,7 +23,7 @@ methods:{
       axios.get('/server/sioux/oui/01')
       .then(res => {
         console.log(res)
-        if (res.data.smoke_signal) this.$toasted.show('Signal sent !')
+        if (res.data.smoke_signal) this.$toasted.show('Signal envoyé !')
       })
       .catch( err => {
         console.log(err)
