@@ -72,7 +72,7 @@ export default {
 </script>
 
 <style scoped>
-  #routine_input{
+  input{
     width : 30%;
     text-align: center;
     background: transparent;

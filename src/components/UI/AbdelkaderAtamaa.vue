@@ -1,7 +1,7 @@
 <template>
   <div class="alert" v-if="threshold !=-1" v-on-clickaway="away">
     <input type="number" id="abdel" oninput="this.value = 
- !!this.value && Math.abs(this.value)!= 0 && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"  v-model="threshold" :disabled="isDisabled" ref="threshold_input" tabindex="-1"> Hz
+ !!this.value && Math.abs(this.value)!= 0 && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"  v-model="threshold" :disabled="isDisabled"  tabindex="-1"> Hz
       <edit-icon @click="edit" v-if="isDisabled"></edit-icon>
       <check-icon v-else @click="submitThreshold" class="checkIcon"></check-icon>
   </div>
