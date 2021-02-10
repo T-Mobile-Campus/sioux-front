@@ -52,7 +52,7 @@ export default {
         .then(res => {
           console.log(res.data)
           if (res.data) {
-            this.$toasted.show('Threshold Updated !')
+            this.$toasted.show('Seuil mis à jour !')
             this.threshold = res.data
           }
         })

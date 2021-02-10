@@ -43,7 +43,7 @@ export default {
       axios.get('/server/signal/oui/01')
       .then(res => {
         console.log(res)
-        if (res.data.smoke_signal) this.$toasted.show('Signal sent !')
+        if (res.data.smoke_signal) this.$toasted.show('Signal envoyé !')
       })
       .catch( err => {
         console.log(err)
