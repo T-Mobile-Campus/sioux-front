@@ -78,7 +78,7 @@ export default {
     background: transparent;
     border: none;
     font-family:inherit;
-    font-size: 2rem;
+    font-size: 1.77rem;
     color: inherit;
     opacity: 0.7;
   }

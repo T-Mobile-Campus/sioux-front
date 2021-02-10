@@ -114,5 +114,5 @@ input[type=number] {
 }
 .material-design-icon{
   margin-left: 15px !important;
-};
+}
 </style>
