@@ -2,8 +2,8 @@
   <Box :width="250" :height="250" title="Lumière reçue" class="box">
     <chart :options="gaugeOpts" autoresize />
     <Button
-    color="#c8c8c8"
-    text="Routine"
+    :color="button_color"
+    :text="button_text"
     size="medium"
     textColor="#262626"
     @click="launch_routine">
@@ -25,6 +25,8 @@ export default {
   },
   data: () => ({
     lum_data: 1000,
+    button_text: "Routine",
+    button_color : "#c8c8c8"
   }),
   sockets: {
     connect() {
@@ -36,14 +38,21 @@ export default {
     },
     update(data) {
       this.lum_data = data.lum
+    },
+    new_trame(){
+      this.button_text = "Routine"
+      this.button_color = "#c8c8c8"
     }
   },
   methods:{
     launch_routine(){
       axios.get('/server/signal/oui/01')
       .then(res => {
-        console.log(res)
-        if (res.data.smoke_signal) this.$toasted.show('Signal envoyé !')
+        if (res.data.smoke_signal){
+          this.button_text = "scheduled"
+          this.button_color = "#5E73B5"
+          this.$toasted.show('Signal envoyé !')
+        } 
       })
       .catch( err => {
         console.log(err)
