@@ -23,7 +23,6 @@ Vue.use(Toasted, {
 let wsHost = "https://sioux.herokuapp.com"
 if (location.host.split(":")[0] == "localhost") {
   wsHost = 'http://localhost:5000'
-  console.log(location.host)
 } 
 
 Vue.directive('click-outside', {
@@ -42,7 +41,6 @@ Vue.directive('click-outside', {
 
 export const SocketInstance = socketio(wsHost );
 //TODO PROXY CONFIG
-console.log(SocketInstance)
 
 Vue.use(new VueSocketIO({ connection: SocketInstance }))
 
