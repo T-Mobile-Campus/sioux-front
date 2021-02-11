@@ -48,17 +48,8 @@ export default {
     submitThreshold(){
       if ( this.threshold > 0) {
         this.isDisabled = true;
-        axios.get(`/server/sioux/threshold/${this.threshold}`)
-        .then(res => {
-          console.log(res.data)
-          if (res.data) {
+
             this.$toasted.show('Seuil mis à jour !')
-            this.threshold = res.data
-          }
-        })
-        .catch( err => {
-          console.log(err)
-        })
       }
       else {
         this.threshold = 1000

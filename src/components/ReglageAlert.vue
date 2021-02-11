@@ -9,7 +9,6 @@
 
 <script>
 import Box from '@/components/UI/Box.vue'
-import axios from 'axios'
 import AbdelkaderAtamaa from '@/components/UI/AbdelkaderAtamaa.vue'
 import RoutineController from '@/components/UI/RoutineController.vue'
 export default {
@@ -20,14 +19,7 @@ export default {
   },
 methods:{
     valider_seuil(){
-      axios.get('/server/sioux/oui/01')
-      .then(res => {
-        console.log(res)
-        if (res.data.smoke_signal) this.$toasted.show('Signal envoyé !')
-      })
-      .catch( err => {
-        console.log(err)
-      })
+      this.$toasted.show('Signal envoyé !')
     },
   },
   }

@@ -48,16 +48,7 @@ export default {
     submitRoutine(){
       if (this.routine && this.routine >= 0) {
         this.isDisabled = true;
-        axios.get(`/server/sioux/routine/${this.routine}`)
-        .then(res => {
-          if (res.data) {
             this.$toasted.show('Routine Mise à jour !')
-            this.routine = res.data
-          }
-        })
-        .catch( err => {
-          console.log(err)
-        })
       }
       else { 
         this.isDisabled = true;

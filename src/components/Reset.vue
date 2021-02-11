@@ -3,7 +3,7 @@
     <Button
     color="#c8c8c8"
     text="Remise à zéro"
-    size="medium"
+    size="small"
     textColor="#262626"
     @click="launch_reset">
     <RestartIcon/>
@@ -13,7 +13,6 @@
 <script>
 import Button from '@/components/UI/Button.vue'
 import Box from '@/components/UI/Box.vue'
-import axios from 'axios'
 import RestartIcon from 'vue-material-design-icons/Restart.vue';
 export default {
   components:{
@@ -23,13 +22,7 @@ export default {
   },
   methods:{
     launch_reset(){
-      axios.get('/server/signal/oui/02')
-      .then(res => {
-        if (res.data.smoke_signal) this.$toasted.show('Signal envoyé !')
-      })
-      .catch( err => {
-        console.log(err)
-      })
+      this.$toasted.show('Signal envoyé !')
     }
   },
 }

@@ -15,7 +15,6 @@
 <script>
 import Button from '@/components/UI/Button.vue'
 import Box from '@/components/UI/Box.vue'
-import axios from 'axios'
 import RoutineIcon from 'vue-material-design-icons/RotateOrbit.vue';
 export default {
   components:{
@@ -40,14 +39,7 @@ export default {
   },
   methods:{
     launch_routine(){
-      axios.get('/server/signal/oui/01')
-      .then(res => {
-        console.log(res)
-        if (res.data.smoke_signal) this.$toasted.show('Signal envoyé !')
-      })
-      .catch( err => {
-        console.log(err)
-      })
+       this.$toasted.show('Signal envoyé !')
     }
   },
 computed:{
